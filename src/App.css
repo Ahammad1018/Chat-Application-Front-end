@@ -1,0 +1,16 @@
+*{
+  font-family: 'Poppins', sans-serif;
+}
+
+.Main-App {
+  background: linear-gradient(to right, rgba(192,212,219,255), rgba(202,217,212,255));
+}
+
+.login-account-text{
+  background : linear-gradient(to right, rgb(159, 207, 231), rgba(144,220,194,255));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  margin-left: 10px;
+}
+
