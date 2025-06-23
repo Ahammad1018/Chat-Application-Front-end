@@ -5,7 +5,7 @@ import { closeSnackbar, enqueueSnackbar } from "notistack";
 import { CloseRounded } from "@mui/icons-material";
 import React from "react";
 import { ConversationContext } from "../API/Conversation";
-import { connectWebSocket, disconnectWebSocket, sendMessage } from "../API/WebSocket";
+import { connectWebSocket, disconnectWebSocket } from "../API/WebSocket";
 import { UserContext } from "../API/Users";
 import { Client } from '@stomp/stompjs';
 import { ConnectionContext } from "../API/Connection";
