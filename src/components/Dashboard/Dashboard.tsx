@@ -232,7 +232,6 @@ const Dashboard = () => {
               <ChatPage
                 selecteduser={userDataState.selectedUser}
                 conversationData={userDataState.conversationData}
-                sendMessage={sendMessage}
                 userDetails={userDetails}
                 handleShowSnackbar={handleShowSnackbar}
                 stompClientRef={stompClientRef}
