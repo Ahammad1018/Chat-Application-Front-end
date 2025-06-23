@@ -13,8 +13,8 @@ export const getLocalISODateTime = () => {
 };
 
 const MessageInputBar = (
-        { messagesData, setMessagesData, isReply, replyData, setIsReply, setReplyData, selecteduser, userDetails, handleShowSnackbar, stompClientRef, setUserDataState, conversationData, selectedMsgsState, setSelectedMsgsState, selectedMsg, setDeleteDialog } :
-        { messagesData : any , setMessagesData : any , isReply : any , replyData : any , setIsReply : any , setReplyData : any, selecteduser : any, userDetails : any, handleShowSnackbar : any, stompClientRef : any, setUserDataState : any, conversationData : any, selectedMsgsState : any, setSelectedMsgsState : any, selectedMsg : any, setDeleteDialog : any }
+        { isReply, replyData, setIsReply, setReplyData, selecteduser, userDetails, handleShowSnackbar, stompClientRef, setUserDataState, selectedMsgsState, setSelectedMsgsState, selectedMsg, setDeleteDialog } :
+        { isReply : any , replyData : any , setIsReply : any , setReplyData : any, selecteduser : any, userDetails : any, handleShowSnackbar : any, stompClientRef : any, setUserDataState : any, selectedMsgsState : any, setSelectedMsgsState : any, selectedMsg : any, setDeleteDialog : any }
     ) => {
 
     const { uploadFile } = React.useContext<any>(ConversationContext);

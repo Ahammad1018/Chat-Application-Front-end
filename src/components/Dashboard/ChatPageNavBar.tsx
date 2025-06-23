@@ -1,14 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
-import { AccountCircleRounded, AlternateEmailRounded, ArrowBackRounded, CalendarToday, CloseRounded, DeleteRounded, HeadsetRounded, HttpsOutlined, Info, InsertDriveFileRounded, LogoutRounded, MailOutlineRounded, MicRounded, MoreVertRounded, NoAccountsRounded, NotificationsRounded, PersonRounded, RemoveCircleOutlineRounded, SearchRounded, StarBorder } from "@mui/icons-material";
-import { AppBar, Avatar, Box, Button, ButtonBase, Card, Checkbox, CircularProgress, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Divider, Drawer, IconButton, ImageList, ImageListItem, ImageListItemBar, InputAdornment, List, ListItem, ListItemIcon, ListItemText, ListSubheader, Menu, MenuItem, Tab, Tabs, TextField, Toolbar, Tooltip, Typography } from "@mui/material";
-import MessageData, { formatSmartDate } from "./MessageData";
+import { AccountCircleRounded, AlternateEmailRounded, ArrowBackRounded, CalendarToday, CloseRounded, DeleteRounded, HeadsetRounded, InsertDriveFileRounded, MailOutlineRounded, MicRounded, MoreVertRounded, NoAccountsRounded, PersonRounded, RemoveCircleOutlineRounded, SearchRounded, StarBorder } from "@mui/icons-material";
+import { AppBar, Avatar, Box, Button, ButtonBase, Card, CircularProgress, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Divider, Drawer, IconButton, ImageList, ImageListItem, ImageListItemBar, InputAdornment, List, ListItem, ListItemIcon, ListItemText, Menu, MenuItem, Tab, Tabs, TextField, Toolbar, Tooltip, Typography } from "@mui/material";
+import { formatSmartDate } from "./MessageData";
 import { UserContext } from "../API/Users";
 import { ConversationContext } from "../API/Conversation";
 import { ConnectionContext } from "../API/Connection";
 
 const ChatPageNavBar = (
-        { messagesData, setMessagesData, selecteduser, sendMessage, conversationData, setMessageSearchDataState, handleShowSnackbar, isSmallScreen, setUserDataState, fetchConnections } :
-        { messagesData : any , setMessagesData : any , selecteduser : any, sendMessage : any, conversationData : any, setMessageSearchDataState : any, handleShowSnackbar : any, isSmallScreen : any, setUserDataState : any, fetchConnections : any }
+        { messagesData, setMessagesData, selecteduser, conversationData, setMessageSearchDataState, handleShowSnackbar, isSmallScreen, setUserDataState, fetchConnections } :
+        { messagesData : any , setMessagesData : any , selecteduser : any, conversationData : any, setMessageSearchDataState : any, handleShowSnackbar : any, isSmallScreen : any, setUserDataState : any, fetchConnections : any }
     ) => {
 
     const { manageUserBlockState } = useContext<any>(UserContext);
@@ -76,29 +76,30 @@ const ChatPageNavBar = (
         { icon: <DeleteRounded sx={{ fontSize : "30px" }} color="error" />, label: "Delete Chat" },
     ];
 
-    const extractTime = (dateStr : any) => {
-        const date = new Date(dateStr);
+    // const extractTime = (dateStr : any) => {
+    //     const date = new Date(dateStr);
 
-        const formatted = date.toLocaleString('en-US', {
-            year: 'numeric',
-            month: 'short',
-            day: 'numeric',
-            hour: 'numeric',
-            minute: '2-digit',
-            hour12: true
-        });
+    //     const formatted = date.toLocaleString('en-US', {
+    //         year: 'numeric',
+    //         month: 'short',
+    //         day: 'numeric',
+    //         hour: 'numeric',
+    //         minute: '2-digit',
+    //         hour12: true
+    //     });
 
-        return formatted;
-    }
+    //     return formatted;
+    // }
 
     const handleScrollToBox = () => {
         sharedMediaBox.current?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start', // align the top of the box with the top of the scroll container
+            behavior: 'smooth',
+            block: 'start', // align the top of the box with the top of the scroll container
         });
     };
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+        console.info(event.isTrusted);
         setTabValue(newValue);
         handleScrollToBox();
     };

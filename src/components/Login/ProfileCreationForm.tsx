@@ -135,11 +135,11 @@ const ProfileCreationForm = (
                     }));
                 }}
                 error={profileSelectionState.userNameError}
-                color="black"
                 sx={{
                     width : "100%",
                     margin : "6% 0",
                     background : '#f7f7f7',
+                    color : "black"
                 }}
             />
 

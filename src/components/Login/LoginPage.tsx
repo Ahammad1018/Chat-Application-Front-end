@@ -647,7 +647,6 @@ const LoginPage = () => {
 
                     <TextField
                         label={profileSelectionState.otpError ? "Invalid OTP" : "OTP"}
-                        color="black"
                         type="number"
                         error={profileSelectionState.otpError}
                         value={profileSelectionState.otp}
@@ -661,6 +660,7 @@ const LoginPage = () => {
                         sx={{
                             width : "90%",
                             background : '#f7f7f7',
+                            color : "black",
                             '& input[type=number]::-webkit-outer-spin-button, & input[type=number]::-webkit-inner-spin-button': {
                                 WebkitAppearance: 'none',
                                 margin: 0,

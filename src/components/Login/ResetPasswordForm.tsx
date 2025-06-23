@@ -48,7 +48,6 @@ const ResetPasswordForm = (
 
                 <TextField
                     label={newCredentialState.emailError ? "Invalid Email" : "Email"}
-                    color="black"
                     error={newCredentialState.emailError}
                     value={newCredentialState.email}
                     onChange={(e) => {
@@ -61,6 +60,7 @@ const ResetPasswordForm = (
                     sx={{
                         width : "100%",
                         background : '#f7f7f7',
+                        color : "black"
                     }}
                     InputProps={{
                         endAdornment: (
@@ -108,7 +108,6 @@ const ResetPasswordForm = (
 
                 <TextField
                     label={newCredentialState.otpError ? "Invalid OTP" : "OTP"}
-                    color="black"
                     type="number"
                     error={newCredentialState.otpError}
                     value={newCredentialState.otp}
@@ -122,6 +121,7 @@ const ResetPasswordForm = (
                     sx={{
                         width : "100%",
                         background : '#f7f7f7',
+                        color : "black",
                         '& input[type=number]::-webkit-outer-spin-button, & input[type=number]::-webkit-inner-spin-button': {
                             WebkitAppearance: 'none',
                             margin: 0,
@@ -203,7 +203,6 @@ const ResetPasswordForm = (
                     </Typography>
                 <TextField
                     label="New Password"
-                    color="black"
                     type={loginState.newPasswordVisibile1 ? "text" : "password"}
                     value={newCredentialState.password}
                     error={newCredentialState.passwordError}
@@ -217,6 +216,7 @@ const ResetPasswordForm = (
                     sx={{
                         width : "100%",
                         background : '#f7f7f7',
+                        color : "black",
                     }}
                     InputProps={{
                         endAdornment: (
@@ -236,7 +236,6 @@ const ResetPasswordForm = (
 
                 <TextField
                     label="Confirm Password"
-                    color="black"
                     type={loginState.newPasswordVisibile2 ? "text" : "password"}
                     value={newCredentialState.confirmPassword}
                     error={newCredentialState.confirmPasswordError}
@@ -250,6 +249,7 @@ const ResetPasswordForm = (
                     sx={{
                         width : "100%",
                         background : '#f7f7f7',
+                        color : "black",
                     }}
                     InputProps={{
                         endAdornment: (

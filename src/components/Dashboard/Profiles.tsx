@@ -1001,7 +1001,6 @@ const Profiles = ({ userDetails, setUserDetails, handleShowSnackbar, userDataSta
                                 type={changePasswordState.passwordVisibility == id ? "text" : "password"}
                                 variant="outlined"
                                 fullWidth
-                                color="black"
                                 error={id == 0 ? changePasswordState.currentPasswordError : changePasswordState.passwordError}
                                 value={id == 0 ? changePasswordState.currentPassword : id == 1 ? changePasswordState.newPassword : changePasswordState.confirmPassword}
                                 onChange={(e) => {
@@ -1014,6 +1013,7 @@ const Profiles = ({ userDetails, setUserDetails, handleShowSnackbar, userDataSta
                                 sx={{
                                     marginTop : "30px",
                                     backgroundColor : "#303030",
+                                    color : "black",
                                     "& .MuiOutlinedInput-root": {
                                         "& fieldset": {
                                             // border: "black",

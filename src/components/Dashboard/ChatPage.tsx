@@ -1,11 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import ChatPageNavBar from "./ChatPageNavBar";
 import MessageInputBar from "./MessageInputBar";
 import MessageData from "./MessageData";
 import { Box, Typography } from "@mui/material";
 
-const ChatPage = ({ selecteduser, conversationData, sendMessage, userDetails, handleShowSnackbar, stompClientRef, setUserDataState, userDataState, isSmallScreen, fetchConnections } : 
-            { selecteduser : any, conversationData : any, sendMessage : any, userDetails : any, handleShowSnackbar : any, stompClientRef : any, setUserDataState : any, userDataState : any, isSmallScreen : any, fetchConnections : any }) => {
+const ChatPage = ({ selecteduser, conversationData, userDetails, handleShowSnackbar, stompClientRef, setUserDataState, userDataState, isSmallScreen, fetchConnections } : 
+            { selecteduser : any, conversationData : any, userDetails : any, handleShowSnackbar : any, stompClientRef : any, setUserDataState : any, userDataState : any, isSmallScreen : any, fetchConnections : any }) => {
 
     const [messagesData, setMessagesData] = useState<any[]>([]);
     const [isReply, setIsReply] = useState(false);
@@ -41,7 +41,6 @@ const ChatPage = ({ selecteduser, conversationData, sendMessage, userDetails, ha
                 messagesData={messagesData} 
                 setMessagesData={setMessagesData}
                 selecteduser={selecteduser}
-                sendMessage={sendMessage}
                 conversationData={conversationData}
                 setMessageSearchDataState={setMessageSearchDataState}
                 handleShowSnackbar={handleShowSnackbar}
@@ -120,9 +119,7 @@ const ChatPage = ({ selecteduser, conversationData, sendMessage, userDetails, ha
                 </Box>
             }
 
-            <MessageInputBar 
-                messagesData={messagesData} 
-                setMessagesData={setMessagesData} 
+            <MessageInputBar
                 isReply={isReply} 
                 replyData={replyData} 
                 setIsReply={setIsReply} 
@@ -132,7 +129,6 @@ const ChatPage = ({ selecteduser, conversationData, sendMessage, userDetails, ha
                 handleShowSnackbar={handleShowSnackbar}
                 stompClientRef={stompClientRef}
                 setUserDataState={setUserDataState}
-                conversationData={conversationData}
                 selectedMsgsState={selectedMsgsState}
                 setSelectedMsgsState={setSelectedMsgsState}
                 selectedMsg={selectedMsg}

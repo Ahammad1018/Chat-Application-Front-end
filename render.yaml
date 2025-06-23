@@ -1,0 +1,10 @@
+services:
+  - type: static_site
+    name: react-frontend
+    repo: https://github.com/your-username/your-repo
+    branch: main
+    buildCommand: npm run build
+    staticPublishPath: build  # or 'dist' if you're using Vite
+    envVars:
+      - key: REACT_APP_API_URL
+        value: https://dashboard.render.com/

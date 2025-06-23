@@ -62,7 +62,7 @@ export const formatSmartDate = (dateString: string) => {
 };
 
 const MessageData = (
-        { conversationData, messagesData, setIsReply, replyData, setReplyData, userDetails, handleShowSnackbar, setUserDataState, selecteduser, userDataState, messageSearchDataState, selectedMsgsState, setSelectedMsgsState, selectedMsg, setSelectedMsg, stompClientRef, deleteDialog, setDeleteDialog } : 
+        { conversationData, messagesData, setIsReply, setReplyData, userDetails, handleShowSnackbar, setUserDataState, selecteduser, userDataState, messageSearchDataState, selectedMsgsState, setSelectedMsgsState, selectedMsg, setSelectedMsg, stompClientRef, deleteDialog, setDeleteDialog } : 
         { conversationData : any, messagesData : any[], setIsReply : any, replyData : any, setReplyData : any, userDetails : any, handleShowSnackbar : any, setUserDataState : any, selecteduser : any, userDataState : any, messageSearchDataState : any, selectedMsgsState : any, setSelectedMsgsState : any, selectedMsg : any, setSelectedMsg : any, stompClientRef : any, deleteDialog : any, setDeleteDialog : any }
     ) => {
 

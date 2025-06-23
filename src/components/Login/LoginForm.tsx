@@ -45,7 +45,6 @@ const LoginForm = (
 
             <TextField
                 label={emailState.error ? "Invalid Email" : "Email"}
-                color="black"
                 error={emailState.error}
                 value={emailState.value}
                 onChange={(e) => {
@@ -55,12 +54,12 @@ const LoginForm = (
                 sx={{
                     background : '#f7f7f7',
                     width : "100%",
+                    color : "black"
                 }}
             />
 
             <TextField 
                 label={passwordState.error ? "Invalid Password" : "Password"}
-                color="black"
                 type={passwordState.visible ? "text" : "password"}
                 error={passwordState.error}
                 value={passwordState.value}
@@ -71,6 +70,7 @@ const LoginForm = (
                 sx={{
                     background : '#f7f7f7',
                     width : "100%",
+                    color : "black"
                 }}
 
                 InputProps={{
