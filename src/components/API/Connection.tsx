@@ -22,7 +22,11 @@ export const ConnectionProvider = ({ children }: ConnectionProviderProps) => {
         try {
             const apiUrl = import.meta.env.VITE_BACKEND_API_URL;
             const jwt = sessionStorage.getItem("AuthToken");
-            const csrf = getCsrfToken();
+            const csrf = getCsrfToken() || sessionStorage.getItem("CSRFToken");
+
+            console.log(apiUrl);
+            console.log(jwt);
+            console.log(csrf);
 
             const res = await axios.get(`${apiUrl}/connection/get-connections`,{
                 headers : {

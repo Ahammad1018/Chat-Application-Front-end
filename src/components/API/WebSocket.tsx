@@ -11,7 +11,7 @@ export const connectWebSocket = (
     handleMessageRecieved: (message: any) => void,
     stompClientRef : any
   ): any => {
-    const sockerURL = `${process.env.REACT_APP_API_URL}/ws-chat?sender=${username}&key=${getKey()}`;
+    const sockerURL = `${import.meta.env.VITE_BACKEND_API_URL}/ws-chat?sender=${username}&key=${getKey()}`;
     const socket = new SockJS(sockerURL);
     const stompClient = new Client({
       webSocketFactory: () => socket as WebSocket,
