@@ -9,20 +9,20 @@ interface ConnectionProviderProps {
 
 export const ConnectionProvider = ({ children }: ConnectionProviderProps) => {
 
-    function getCsrfToken() {
-        const csrfToken = document.cookie
-            .split('; ')
-            .find(row => row.startsWith('XSRF-TOKEN='))
-            ?.split('=')[1];
+    // function getCsrfToken() {
+    //     const csrfToken = document.cookie
+    //         .split('; ')
+    //         .find(row => row.startsWith('XSRF-TOKEN='))
+    //         ?.split('=')[1];
 
-        return csrfToken;
-    }
+    //     return csrfToken;
+    // }
 
     const getConnections = async () => {
         try {
             const apiUrl = import.meta.env.VITE_BACKEND_API_URL;
             const jwt = sessionStorage.getItem("AuthToken");
-            const csrf = getCsrfToken();
+            const csrf = sessionStorage.getItem("CSRFToken")//getCsrfToken();
 
             console.log(apiUrl);
             console.log(jwt);
@@ -47,7 +47,7 @@ export const ConnectionProvider = ({ children }: ConnectionProviderProps) => {
         try {
             const apiUrl = import.meta.env.VITE_BACKEND_API_URL;
             const jwt = sessionStorage.getItem("AuthToken");
-            const csrf = getCsrfToken();
+            const csrf = sessionStorage.getItem("CSRFToken")//getCsrfToken();
 
             const res = await axios.get(`${apiUrl}/connection/get-searched-users/${searched}`,{
                 headers : {
@@ -68,7 +68,7 @@ export const ConnectionProvider = ({ children }: ConnectionProviderProps) => {
         try {
             const apiUrl = import.meta.env.VITE_BACKEND_API_URL;
             const jwt = sessionStorage.getItem("AuthToken");
-            const csrf = getCsrfToken();
+            const csrf = sessionStorage.getItem("CSRFToken")//getCsrfToken();
 
             const res = await axios.post(`${apiUrl}/connection/change/chat-opened-status/${userName}`, 
                 {
@@ -93,7 +93,7 @@ export const ConnectionProvider = ({ children }: ConnectionProviderProps) => {
         try {
             const apiUrl = import.meta.env.VITE_BACKEND_API_URL;
             const jwt = sessionStorage.getItem("AuthToken");
-            const csrf = getCsrfToken();
+            const csrf = sessionStorage.getItem("CSRFToken")//getCsrfToken();
 
             const res = await axios.post(`${apiUrl}/connection/close-chat/${userName}`, {}, {
                 headers : {
@@ -114,7 +114,7 @@ export const ConnectionProvider = ({ children }: ConnectionProviderProps) => {
         try {
             const apiUrl = import.meta.env.VITE_BACKEND_API_URL;
             const jwt = sessionStorage.getItem("AuthToken");
-            const csrf = getCsrfToken();
+            const csrf = sessionStorage.getItem("CSRFToken")//getCsrfToken();
 
             const res = await axios.post(`${apiUrl}/connection/delete-user-connection/${userName}/block=${status}`, {}, {
                 headers : {

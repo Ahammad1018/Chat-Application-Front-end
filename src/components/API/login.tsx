@@ -21,6 +21,7 @@ export const LoginProvider = ({ children }: LoginProviderProps) => {
                 { withCredentials: true }
             );
             fetchCsrf();
+            sessionStorage.setItem("CSRFToken", response.data.csrfToken);
             sessionStorage.setItem("WebSocketKey", response.data.key);
             StoreData(response.data.jwt, response.data.userData);
             return response;
