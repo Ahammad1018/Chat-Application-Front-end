@@ -22,7 +22,7 @@ export const ConnectionProvider = ({ children }: ConnectionProviderProps) => {
         try {
             const apiUrl = import.meta.env.VITE_BACKEND_API_URL;
             const jwt = sessionStorage.getItem("AuthToken");
-            const csrf = getCsrfToken() || sessionStorage.getItem("CSRFToken");
+            const csrf = getCsrfToken();
 
             console.log(apiUrl);
             console.log(jwt);

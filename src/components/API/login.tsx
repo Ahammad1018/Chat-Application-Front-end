@@ -20,11 +20,23 @@ export const LoginProvider = ({ children }: LoginProviderProps) => {
                 },
                 { withCredentials: true }
             );
-            sessionStorage.setItem("CSRFToken", response.data.csrfToken);
+            fetchCsrf();
             sessionStorage.setItem("WebSocketKey", response.data.key);
             StoreData(response.data.jwt, response.data.userData);
             return response;
 
+        } catch (error) {
+            return error;
+        }
+    }
+
+    const fetchCsrf = async () => {
+        try {
+            const apiUrl = import.meta.env.VITE_BACKEND_API_URL;
+            await fetch(`${apiUrl}/login/csrf-token`, {
+                method: "GET",
+                credentials: "include"
+            });
         } catch (error) {
             return error;
         }
