@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { ReactNode } from 'react';
-import { getCsrfToken } from '../StoreData';
 
 export const UserContext = React.createContext({});
 
@@ -14,7 +13,7 @@ export const UserProvider = ({ children }: UserProviderProps) => {
         try {
             const apiUrl = import.meta.env.VITE_BACKEND_API_URL;
             const jwt = sessionStorage.getItem("AuthToken");
-            const csrf = getCsrfToken();
+            const csrf = sessionStorage.getItem("CSRFToken");
 
             const response = await axios.post(`${apiUrl}/user/change/status/${status}`,
               {},
@@ -37,7 +36,7 @@ export const UserProvider = ({ children }: UserProviderProps) => {
         try {
             const apiUrl = import.meta.env.VITE_BACKEND_API_URL;
             const jwt = sessionStorage.getItem("AuthToken");
-            const csrf = getCsrfToken();
+            const csrf = sessionStorage.getItem("CSRFToken");
 
             const response = await axios.post(`${apiUrl}/user/change-password`,
               { oldPassword, newPassword },
@@ -60,7 +59,7 @@ export const UserProvider = ({ children }: UserProviderProps) => {
       try {
             const apiUrl = import.meta.env.VITE_BACKEND_API_URL;
             const jwt = sessionStorage.getItem("AuthToken");
-            const csrf = getCsrfToken();
+            const csrf = sessionStorage.getItem("CSRFToken");
 
             const response = await axios.post(`${apiUrl}/user/update-profile-picture/cloudinary`,
               formData,
@@ -83,7 +82,7 @@ export const UserProvider = ({ children }: UserProviderProps) => {
       try {
             const apiUrl = import.meta.env.VITE_BACKEND_API_URL;
             const jwt = sessionStorage.getItem("AuthToken");
-            const csrf = getCsrfToken();
+            const csrf = sessionStorage.getItem("CSRFToken");
 
             const response = await axios.post(`${apiUrl}/user/invite/new-user`,
               { email, inviteLink },
@@ -107,7 +106,7 @@ export const UserProvider = ({ children }: UserProviderProps) => {
       try {
         const apiUrl = import.meta.env.VITE_BACKEND_API_URL;
         const jwt = sessionStorage.getItem("AuthToken");
-        const csrf = getCsrfToken();
+        const csrf = sessionStorage.getItem("CSRFToken");
 
         const response = await axios.post(`${apiUrl}/user/block-user/${state}/${userName}`,
           {},

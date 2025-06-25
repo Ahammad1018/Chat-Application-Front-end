@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { ReactNode } from 'react';
-import { getCsrfToken } from '../StoreData';
 
 export const ConversationContext = React.createContext({});
 
@@ -14,7 +13,7 @@ export const ConversationProvider = ({ children }: ConversationProviderProps) =>
         try {
             const apiUrl = import.meta.env.VITE_BACKEND_API_URL;
             const jwt = sessionStorage.getItem("AuthToken");
-            const csrf = getCsrfToken();
+            const csrf = sessionStorage.getItem("CSRFToken");
 
             const res = await axios.get(`${apiUrl}/conversation/get-conversations/${userName}`,{
                 headers : {
@@ -35,7 +34,7 @@ export const ConversationProvider = ({ children }: ConversationProviderProps) =>
         try {
             const apiUrl = import.meta.env.VITE_BACKEND_API_URL;
             const jwt = sessionStorage.getItem("AuthToken");
-            const csrf = getCsrfToken();
+            const csrf = sessionStorage.getItem("CSRFToken");
 
             const url = type == "many" ?
                 `${apiUrl}/conversation/upload-many-files/cloudinary`
@@ -60,7 +59,7 @@ export const ConversationProvider = ({ children }: ConversationProviderProps) =>
         try {
             const apiUrl = import.meta.env.VITE_BACKEND_API_URL;
             const jwt = sessionStorage.getItem("AuthToken");
-            const csrf = getCsrfToken();
+            const csrf = sessionStorage.getItem("CSRFToken");
 
             const res = await axios.post(`${apiUrl}/conversation/remove-file/cloudinary/${url}`, {}, {
                 headers : {
@@ -81,7 +80,7 @@ export const ConversationProvider = ({ children }: ConversationProviderProps) =>
         try {
             const apiUrl = import.meta.env.VITE_BACKEND_API_URL;
             const jwt = sessionStorage.getItem("AuthToken");
-            const csrf = getCsrfToken();
+            const csrf = sessionStorage.getItem("CSRFToken");
 
             const res = await axios.delete(`${apiUrl}/conversation/delete/message/${everyone}/${userName}/${id}`, {
                 headers : {
@@ -102,7 +101,7 @@ export const ConversationProvider = ({ children }: ConversationProviderProps) =>
         try {
             const apiUrl = import.meta.env.VITE_BACKEND_API_URL;
             const jwt = sessionStorage.getItem("AuthToken");
-            const csrf = getCsrfToken();
+            const csrf = sessionStorage.getItem("CSRFToken");
             
             const res = await axios.delete(`${apiUrl}/conversation/delete/messages/${everyone}/${userName}`, {
                 headers : {
@@ -124,7 +123,7 @@ export const ConversationProvider = ({ children }: ConversationProviderProps) =>
         try {
              const apiUrl = import.meta.env.VITE_BACKEND_API_URL;
             const jwt = sessionStorage.getItem("AuthToken");
-            const csrf = getCsrfToken();
+            const csrf = sessionStorage.getItem("CSRFToken");
             
             const res = await axios.post(`${apiUrl}/conversation/clear-chat/${userName}`,{}, {
                 headers : {

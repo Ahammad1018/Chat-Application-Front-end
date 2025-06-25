@@ -22,12 +22,3 @@ export const getUserDetails = (type : string) => {
         return user.email;
     }
 }
-
-export const getCsrfToken = () => {
-    const csrfToken = document.cookie
-        .split('; ')
-        .find(row => row.startsWith('XSRF-TOKEN='))
-        ?.split('=')[1];
-
-    return csrfToken;
-}
