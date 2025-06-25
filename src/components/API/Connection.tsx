@@ -49,6 +49,10 @@ export const ConnectionProvider = ({ children }: ConnectionProviderProps) => {
             const jwt = sessionStorage.getItem("AuthToken");
             const csrf = sessionStorage.getItem("CSRFToken")//getCsrfToken();
 
+            console.log("URL : " + apiUrl);
+            console.log("JWT : " + jwt);
+            console.log("CSRF : " + csrf);
+
             const res = await axios.get(`${apiUrl}/connection/get-searched-users/${searched}`,{
                 headers : {
                     "Content-Type": "application/json",
