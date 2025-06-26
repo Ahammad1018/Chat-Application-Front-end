@@ -216,7 +216,14 @@ const ResetPasswordForm = (
                     sx={{
                         width : "100%",
                         background : '#f7f7f7',
-                        color : "black",
+                        '& .MuiOutlinedInput-root': {
+                            '&.Mui-focused fieldset': {
+                                borderColor: 'black',
+                            },
+                        },
+                        '& label.Mui-focused': {
+                            color: 'black',
+                        },
                     }}
                     InputProps={{
                         endAdornment: (
@@ -249,7 +256,14 @@ const ResetPasswordForm = (
                     sx={{
                         width : "100%",
                         background : '#f7f7f7',
-                        color : "black",
+                        '& .MuiOutlinedInput-root': {
+                            '&.Mui-focused fieldset': {
+                                borderColor: 'black',
+                            },
+                        },
+                        '& label.Mui-focused': {
+                            color: 'black',
+                        },
                     }}
                     InputProps={{
                         endAdornment: (

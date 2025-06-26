@@ -356,27 +356,32 @@ const LoginPage = () => {
             signUpButton : true,
             otpButton : true
         }));
-        
-        const res = await sendEmail(emailState.value, profileSelectionState.userName);
-        if (res.status && res.status === 201) {
-            handleShowSnackbar("A verification code has been successfully sent to your email. It will expire in 5 minutes.");
-            setProfileSelectionState(prev => ({
-                ...prev,
-                verifyEmail : true,
-            }));
-            setNewCredentialState(prev => ({
-                ...prev,
-                otpSent : true
-            }));
-        } else if (res.status === 422) {
-            handleShowSnackbar("This username is already in use. Try a different one.");
-            setProfileSelectionState(prev => ({
-                ...prev,
-                userNameError : true,
-            }));
+
+        if (profileSelectionState.userName.length > 0) {
+            const res = await sendEmail(emailState.value, profileSelectionState.userName);
+            if (res.status && res.status === 201) {
+                handleShowSnackbar("A verification code has been successfully sent to your email. It will expire in 5 minutes.");
+                setProfileSelectionState(prev => ({
+                    ...prev,
+                    verifyEmail : true,
+                }));
+                setNewCredentialState(prev => ({
+                    ...prev,
+                    otpSent : true
+                }));
+            } else if (res.status === 422) {
+                handleShowSnackbar("This username is already in use. Try a different one.");
+                setProfileSelectionState(prev => ({
+                    ...prev,
+                    userNameError : true,
+                }));
+            } else {
+                handleShowSnackbar("Failed to send verification code. Please try again.");
+            }
         } else {
-            handleShowSnackbar("Failed to send verification code. Please try again.");
+            handleShowSnackbar("Hmm... looks like you missed the username field.");
         }
+
         setButtonState(prev => ({
             ...prev,
             signUpButton : false,
@@ -461,6 +466,10 @@ const LoginPage = () => {
             handleShowSnackbar("Please upload an image (JPG, PNG, or GIF) under 5MB.");
         }
     };
+
+    React.useEffect(() => {
+        console.log("Profile Selection State Updated:", profileSelectionState);
+    }, [profileSelectionState.profileImg]);
 
 
     return  (
@@ -660,7 +669,14 @@ const LoginPage = () => {
                         sx={{
                             width : "90%",
                             background : '#f7f7f7',
-                            color : "black",
+                            '& .MuiOutlinedInput-root': {
+                                '&.Mui-focused fieldset': {
+                                    borderColor: 'black',
+                                },
+                            },
+                            '& label.Mui-focused': {
+                                color: 'black',
+                            },
                             '& input[type=number]::-webkit-outer-spin-button, & input[type=number]::-webkit-inner-spin-button': {
                                 WebkitAppearance: 'none',
                                 margin: 0,

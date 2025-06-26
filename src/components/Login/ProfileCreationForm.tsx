@@ -139,7 +139,14 @@ const ProfileCreationForm = (
                     width : "100%",
                     margin : "6% 0",
                     background : '#f7f7f7',
-                    color : "black"
+                    '& .MuiOutlinedInput-root': {
+                        '&.Mui-focused fieldset': {
+                            borderColor: 'black',
+                        },
+                    },
+                    '& label.Mui-focused': {
+                        color: 'black',
+                    },
                 }}
             />
 

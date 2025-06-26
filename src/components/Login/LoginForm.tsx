@@ -50,11 +50,17 @@ const LoginForm = (
                 onChange={(e) => {
                     setEmailState({value : e.target.value, error : false});
                 }}
-
                 sx={{
                     background : '#f7f7f7',
                     width : "100%",
-                    color : "black"
+                    '& .MuiOutlinedInput-root': {
+                        '&.Mui-focused fieldset': {
+                            borderColor: 'black',
+                        },
+                    },
+                    '& label.Mui-focused': {
+                        color: 'black',
+                    },
                 }}
             />
 
@@ -70,7 +76,14 @@ const LoginForm = (
                 sx={{
                     background : '#f7f7f7',
                     width : "100%",
-                    color : "black"
+                    '& .MuiOutlinedInput-root': {
+                        '&.Mui-focused fieldset': {
+                            borderColor: 'black',
+                        },
+                    },
+                    '& label.Mui-focused': {
+                        color: 'black',
+                    },
                 }}
 
                 InputProps={{
